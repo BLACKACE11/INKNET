@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload a Book - INKNET</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+    }
+    header {
+      background: rgba(10,10,10,0.95);
+      padding: 1.5rem 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 2rem; font-weight: 700; color: #ffeb3b; }
+
+    .upload-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #111;
+      border-radius: 20px;
+    }
+    .upload-container h1 {
+      font-family: 'Playfair Display', serif;
+      color: #ffeb3b;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-group { margin-bottom: 25px; }
+    label { display: block; margin-bottom: 8px; font-weight: 500; color: #ddd; }
+    input, select {
+      width: 100%;
+      padding: 14px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    /* Rich Text Editor */
+    .editor-toolbar {
+      background: #1a1a1a;
+      padding: 10px;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      gap: 8px;
+      border: 1px solid #333;
+    }
+    .editor-toolbar button {
+      padding: 8px 14px;
+      background: #222;
+      border: none;
+      color: #ffeb3b;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    #bookContent {
+      width: 100%;
+      min-height: 420px;
+      padding: 20px;
+      background: #1f1f1f;
+      border: 1px solid #333;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      color: #eee;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      outline: none;
+    }
+
+    .cover-preview {
+      width: 100%;
+      height: 320px;
+      background: #222;
+      border-radius: 12px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 2px dashed #ffeb3b;
+    }
+    .cover-preview img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .btn {
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn-primary { background: #ffeb3b; color: #1a1a1a; }
+    .btn-secondary { background: transparent; border: 2px solid #ffeb3b; color: #ffeb3b; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">INKNET</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="upload.html">Upload</a>
+    </nav>
+  </header>
+
+  <div class="upload-container">
+    <h1>Upload Your Book</h1>
+
+    <div class="form-group">
+      <label>Book Title</label>
+      <input type="text" id="title" placeholder="Enter book title">
+    </div>
+
+    <div class="form-group">
+      <label>Genre</label>
+      <select id="genre">
+        <option>Fantasy</option>
+        <option>Mystery</option>
+        <option>Crime</option>
+        <option>Horror</option>
+        <option>Thriller</option>
+        <option>Romance</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Book Cover</label>
+      <input type="file" id="coverUpload" accept="image/*">
+      <div class="cover-preview" id="coverPreview">
+        <p style="color:#aaa;">Preview will appear here</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Write Your Book</label>
+      <div class="editor-toolbar">
+        <button onclick="document.execCommand('bold')">𝐁</button>
+        <button onclick="document.execCommand('italic')">𝐼</button>
+        <button onclick="document.execCommand('underline')">𝐔</button>
+        <button onclick="document.getElementById('bookContent').style.fontSize='1.4rem'">Big</button>
+        <button onclick="document.getElementById('bookContent').style.fontSize='1.1rem'">Normal</button>
+      </div>
+      <div id="bookContent" contenteditable="true" placeholder="Start writing your story here..."></div>
+    </div>
+
+    <div style="text-align:center">
+      <button class="btn btn-primary" onclick="saveBook()">Save Book</button>
+      <button class="btn btn-secondary" onclick="downloadCover()">Add to Catalogue</button>
+    </div>
+  </div>
+
+  <script>
+    // Cover preview
+    document.getElementById('coverUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          document.getElementById('coverPreview').innerHTML = `<img src="${ev.target.result}" alt="Cover">`;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function saveBook() {
+      alert("✅ Book saved successfully!\n\nIt has been added to your Catalogue.");
+      // In a real site this would send to a backend
+      window.location.href = "catalogue.html";
+    }
+
+    function downloadCover() {
+      alert("📥 Cover downloaded to your laptop (demo)");
+    }
+  </script>
+</body>
+</html>

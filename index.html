@@ -10,15 +10,25 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="nav-container">
-      <div class="logo">INKNET</div>
-      <nav>
-        <a href="#" class="active">Home</a>
-        <a href="#">Library</a>
-        <a href="#">Community</a>
-      </nav>
-    </div>
-  </header>
+  <div class="logo">INKNET</div>
+  
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="upload.html">Upload</a>
+    <a href="#">Library</a>
+    <a href="#">Community</a>
+  </nav>
+
+  <!-- Hamburger Menu -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+
 
   <!-- Hero Section -->
 <!-- HERO SECTION -->
@@ -42,7 +52,7 @@
 </section>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <!--main class="main-content">
     <div class="tablet-section">
       <div class="tablet">
         <div class="tablet-screen">
@@ -59,7 +69,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div-->
 
     <div class="trending-section">
       <div class="trending-header">
@@ -90,6 +100,11 @@
           <p class="genre">Crime</p>
           <p class="title">Red Velvet</p>
         </div>
+         <!--div class="book-card">
+          <img src="images/pricetag.jpg" alt="The Fantasy">
+          <p class="genre">Comedy</p>
+          <p class="title">Price Tag</p>
+        </div-->
         <div class="book-card">
           <img src="images/clockwise.jpg" alt="Mystery">
           <p class="genre">Mystery</p>
@@ -184,6 +199,28 @@
     window.addEventListener('scroll', () => {
       document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    // Hamburger Menu Toggle
+function toggleMenu() {
+  const menu = document.querySelector('.mobile-menu');
+  if (!menu) {
+    // Create mobile menu dynamically if it doesn't exist
+    const newMenu = document.createElement('div');
+    newMenu.className = 'mobile-menu';
+    newMenu.innerHTML = `
+      <a href="index.html">Home</a>
+      <a href="catalogue.html">Catalogue</a>
+      <a href="upload.html">Upload</a>
+      <a href="#">Library</a>
+      <a href="#">Community</a>
+    `;
+    document.body.appendChild(newMenu);
+    newMenu.classList.add('active');
+  } else {
+    menu.classList.toggle('active');
+  }
+}
+
   </script>
 </body>
 </html>

@@ -1,233 +1,1131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LITPAGE - Your Next Chapter Awaits</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Header -->
-  <header>
-  <div class="logo">INKNET</div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0a;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Header */
+/*header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #f4d35e;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin-left: 2.5rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+  color: #f4d35e;
+}*/
+
+/* Header */
+header {
+  background: rgba(10,10,10,0.98);
+  padding: 1.2rem 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffeb3b;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffeb3b;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #ffeb3b;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #0a0a0a;
+  padding: 20px 0;
+  z-index: 999;
+  border-top: 1px solid #333;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 15px 6%;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #222;
+}
+
+/* ==================== RESPONSIVE BREAKPOINTS ==================== */
+
+@media (max-width: 992px) {
+  .nav-links {
+    display: none;                    /* Hide normal nav on mobile */
+  }
   
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="catalogue.html">Catalogue</a>
-    <!--a href="upload.html">Upload</a-->
-    <a href="#">Pricing</a>
-    <a href="#">Community</a>
-  </nav>
-
-  <!-- Hamburger Menu -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
-
-
-
-  <!-- Hero Section -->
-<!-- HERO SECTION -->
-<section class="hero">
-  <!-- Blurry Background -->
-  <div class="hero-bg"></div>
-
-  <!-- Content on top -->
-  <div class="hero-content">
-    <br><br>
-    <h1>Your Next Chapter Awaits</h1>
-    <p class="subtitle">Discover Stories That Matter</p>
-
-    <p class="tagline">Read. Explore. Connect.</p>
-
-    <div class="cta-buttons">
-      <a href="catalogue.html" class="btn primary"> Browse Books</a>
-      <a href="uploadbook.html" class="btn secondary">Upload a Book</a>
-    </div>
-  </div>
-</section>
-<br><br>
-
-  <!-- Main Content -->
-  <!--main class="main-content">
-    <div class="tablet-section">
-      <div class="tablet">
-        <div class="tablet-screen">
-          <h2>THE LAST NIGHT</h2>
-          <p class="book-text">
-           Every tuesday night, Elenor Voss locked the old Willow Creek Library at 9:17 p.m <br>
-           Tonight the basement door was already open.<br>
-           A cold, wet breath crawled uo the stairs. The light at the bottom had gone out. then she heard it- slow, bare footsteps rising from the darkness.<br>
-           she should run<br>
-           Instead she stared as a tall, hunched shape blocked the faint light...and lifted its head.<br>
-           Eleven years ago, a man with too many teeth had smiled and whispered he would wait for her.<br>
-           He had kept hus promise <br>
-           And now, the library was listening.
-          </p>
-        </div>
-      </div>
-    </div-->
-
-    <div class="trending-section">
-      <div class="trending-header">
-        <h2>Trending</h2>
-        <a href="catalogue.html" class="view-all">→</a>
-      </div>
-
-      <!-- Large Trending Book -->
-      <div class="large-trending">
-        <img src="images/pricetag.jpg" alt="Titan's Legacy" class="book-cover">
-        <div class="book-info" style="flex: 1;">
-          <p style="color: #ffffff; font-size: 1.15rem; line-height: 1.6; margin-bottom: 25px;" class="book-description">
-            There's a little light that comes out from your morning and the dark. Communication is the key to success.  Instead she stared. 
-          
-          </p>
-       <div style="text-align: center; margin-top: 25px;">
-          <button 
-          onclick="alert('opening book...')"
-          style="background: #ffeb3b; color: #1a1a1a; padding: 16px 48px; font-size: 1.15rem;"
-          class="btn small">Read Now</button></div> 
-        </div>
-      </div>
-
-      <!-- Trending Grid -->
-      <div class="trending-grid">
-        <div class="book-card">
-          <img src="images/nobodymove.jpg" alt="Cape Soure">
-          <p class="genre">crime</p>
-          <p class="title">Nobody Move</p>
-        </div>
-        <div class="book-card">
-          <img src="images/redvelvet.jpg" alt="The Fantasy">
-          <p class="genre">Crime</p>
-          <p class="title">Red Velvet</p>
-        </div>
-         <div class="book-card">
-          <img src="images/pricetag.jpg" alt="The Fantasy">
-          <p class="genre">Comedy</p>
-          <p class="title">Price Tag</p>
-        </div>
-        <div class="book-card">
-          <img src="images/clockwise.jpg" alt="Mystery">
-          <p class="genre">Mystery</p>
-          <p class="title">Clock Wise</p>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <section class="genres-section">
-  <div class="section-header">
-    <h2>Explore Genres</h2>
-    <p>Discover stories that match your mood</p>
-  </div>
-
-  <div class="genres-grid">
-    <div class="genre-card" data-genre="fantasy">
-      <div class="genre-icon">🗡️</div>
-      <h3>Fantasy</h3>
-      <p>Epic worlds, magic & mythical creatures</p>
-    </div>
-
-    <div class="genre-card" data-genre="mystery">
-      <div class="genre-icon">🔍</div>
-      <h3>Mystery</h3>
-      <p>Thrilling puzzles and hidden secrets</p>
-    </div>
-
-    <div class="genre-card" data-genre="crime">
-      <div class="genre-icon">🔫</div>
-      <h3>Crime</h3>
-            <p>Dark investigations and intense thrillers</p>
-    </div>
-
-    <div class="genre-card" data-genre="romance">
-      <div class="genre-icon">❤️</div>
-      <h3>Romance</h3>
-      <p>Love stories that capture the heart</p>
-    </div>
-
-    <div class="genre-card" data-genre="scifi">
-      <div class="genre-icon">🚀</div>
-      <h3>Sci-Fi</h3>
-      <p>Future worlds and cosmic adventures</p>
-    </div>
-
-    <div class="genre-card" data-genre="thriller">
-      <div class="genre-icon">⚡</div>
-      <h3>Thriller</h3>
-      <p>Heart-pounding suspense and tension</p>
-    </div>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <h2>INKNET</h2>
-        <p>Your Next Chapter Awaits</p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#">About Us</a>
-        <a href="#">Browse Books</a>
-        <a href="#">Community</a>
-        <a href="#">Contact</a>
-      </div>
-
-      <div class="footer-social">
-        <p>Follow Us</p>
-        <div class="social-buttons">
-          <a href="#" class="social-btn">𝕏</a>
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">📸</a>
-          <a href="#" class="social-btn">▶️</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2026 INKNET. All Rights Reserved.</p>
-      <p>Made with ❤️ for book lovers</p>
-    </div>
-  </div>
-</footer>
-
-
-  <script>
-    // Simple scroll effect for header
-    window.addEventListener('scroll', () => {
-      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Hamburger Menu Toggle
-function toggleMenu() {
-  const menu = document.querySelector('.mobile-menu');
-  if (!menu) {
-    // Create mobile menu dynamically if it doesn't exist
-    const newMenu = document.createElement('div');
-    newMenu.className = 'mobile-menu';
-    newMenu.innerHTML = `
-      <a href="index.html">Home</a>
-      <a href="catalogue.html">Catalogue</a>
-      <a href="upload.html">Upload</a>
-      <a href="#">Library</a>
-      <a href="#">Community</a>
-    `;
-    document.body.appendChild(newMenu);
-    newMenu.classList.add('active');
-  } else {
-    menu.classList.toggle('active');
+  .hamburger {
+    display: flex;                    /* Show hamburger */
   }
 }
 
-  </script>
-</body>
-</html>
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .book-detail {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 5%;
+  }
+  
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    padding: 40px 5%;
+  }
+  
+  .genres-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Show mobile menu when active */
+.mobile-menu.active {
+  display: block;
+}
+
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+              url('https://source.unsplash.com/random/1920x1080/?cosmic,stars') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.2rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  color: #f4d35e;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.hero-book {
+  margin: 2rem 0 3rem;
+}
+
+.open-book {
+  width: 720px;
+  max-width: 90%;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
+  border-radius: 8px;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn.primary {
+  text-decoration: none;
+  background: #f4d35e;
+  color: #1a1a1a;
+}
+
+.btn.primary:hover {
+  background: #ffeb99;
+  transform: translateY(-3px);
+}
+
+.btn.secondary {
+  text-decoration: none;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #f4d35e;
+}
+
+.btn.secondary:hover {
+  background: #f4d35e;
+  color: #1a1a1a;
+}
+
+/* Main Content */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  padding: 5rem 5% 8rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #0f0f0f;
+}
+
+/* Tablet */
+.tablet {
+  background: #1a1a1a;
+  border-radius: 40px;
+  padding: 20px;
+  width: 380px;
+  margin: 0 auto;
+}
+
+.tablet-screen {
+  background: #262626;
+  color: #020202;
+  border-radius: 20px;
+  padding: 30px 25px;
+  height: 780px;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.2);
+}
+
+.tablet-screen h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg #ffeb3b, #f9c74f, #ffd700, #ffeb3b);
+ 
+  background-clip: text;
+  margin-bottom: 1.2rem;
+}
+
+.tablet-screen h2:hover{
+  text-shadow: 0 6px 20px rgba(225, 235, 59, 0.5);
+   transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
+.book-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: center;
+}
+
+/* Trending Section */
+.trending-section {
+  color: #fff;
+}
+
+.trending-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.trending-header h2 {
+  font-size: 2.2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.large-trending {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  background: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 60px;
+}
+
+.book-cover {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
+}
+
+.book-info p {
+  text-decoration: none;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.btn-small{
+background: #ffeb3b;
+color: #ccc;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.book-card {
+  text-align: center;
+}
+
+.book-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.genre {
+  color: #f4d35e;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.title {
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Responsive */
+/*@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}*/
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('banner.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(0.75);
+  z-index: 1;
+}
+
+
+/* Dark overlay for better text readability */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(10, 10, 10, 0.78), rgba(20, 10, 0, 0.88));
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 920px;
+  padding: 0 20px;
+}
+
+
+.hero h1 {
+  color: #ffeb3b !important;
+  text-shadow: 0 6px 25px rgba(0, 0, 0, 0.95);
+  font-size: 4.2rem;
+}
+
+.subtitle {
+  color: #ffeb3b !important;
+  font-size: 1.75rem;
+}
+
+
+.hero-book {
+  margin: 2.5rem 0 3rem;
+}
+
+.open-book {
+  width: 720px;
+  max-width: 88%;
+  border-radius: 12px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.85);
+  position: relative;
+  z-index: 4;
+}
+
+.tagline {
+  font-size: 1.45rem;
+  color: #ddd;
+  margin-bottom: 2.8rem;
+  font-style: italic;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 36px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn.primary {
+  background: #ffeb3b;
+  color: #1a1a1a;
+}
+
+.btn.primary:hover {
+  background: #fff176;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(255, 235, 59, 0.4);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2.5px solid #ffeb3b;
+}
+
+.btn.secondary:hover {
+  background: #ffeb3b;
+  color: #1a1a1a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  .open-book {
+    width: 580px;
+  }
+}
+
+/* Make book cards responsive and add hover effect */
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.8rem;
+  margin-top: 20px;
+}
+
+.book-card {
+  transition: all 0.4s ease;
+  cursor: pointer;                    /* Changes cursor to hand/pointer */
+  position: relative;
+  border-radius: 12px;
+}
+
+.book-card img {
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+  height: 250pxx;
+}
+
+/* Hover Effect - Book becomes larger + slight lift */
+.book-card:hover {
+  transform: scale(1.12) translateY(-12px);   /* Makes it bigger and lifts up */
+  z-index: 10;
+}
+
+.book-card:hover img {
+  box-shadow: 0 25px 50px rgba(255, 235, 59, 0.3);  /* Adds yellow glow on hover */
+}
+
+/* Title and genre styling */
+.book-card .genre {
+  color: #ffeb3b;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  font-weight: 500;
+  transition: color 0.3s;
+ 
+}
+
+.book-card:hover .genre {
+  color: #fff;
+}
+
+.book-card .title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 4px;
+  color: #ddd;
+  transition: color 0.3s;
+}
+
+.book-card:hover .title {
+  color: #ffeb3b;
+}
+
+/* Optional: Add a subtle shine effect */
+.book-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 235, 59, 0.25),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: all 0.7s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.book-card:hover::after {
+  opacity: 1;
+  left: 120%;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/banner.jpg');   /* Change this if your file name is different */
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px) brightness(1.75);
+  z-index: 1;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(10, 10, 10, 0.82),
+    rgba(15, 8, 0, 0.9)
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  padding: 0 25px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.0rem;
+  color: #ffeb3b;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.95);
+}
+
+.subtitle {
+  font-size: 1.7rem;
+  color: #ffeb3b;
+  margin-bottom: 2.5rem;
+}
+
+.hero-book {
+  margin: 2rem 0 3rem;
+}
+
+.open-book {
+  width: 680px;
+  max-width: 85%;
+  border-radius: 12px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.85);
+}
+
+.tagline {
+  font-size: 1.4rem;
+  color: #ddd;
+  margin-bottom: 2.8rem;
+  font-style: italic;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 38px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn.primary {
+  background: #ffeb3b;
+  color: #1a1a1a;
+}
+
+.btn.primary:hover {
+  background: #fff176;
+  transform: translateY(-3px);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: #fff;
+  border: 2.5px solid #ffeb3b;
+}
+
+.btn.secondary:hover {
+  background: #ffeb3b;
+  color: #1a1a1a;
+}
+
+.genres-section {
+  padding: 100px 6% 120px;
+  background: #0a0a0a;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  color: #ffeb3b;
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  font-size: 1.25rem;
+  color: #bbb;
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+/*.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20;
+  width: 100%;
+  box-sizing: border-box;
+  
+}*/
+
+
+
+.genre-card {
+  background: #111;
+  border-radius: 16px;
+  padding: 40px 25px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: 1px solid #222;
+  position: relative;
+  overflow: hidden;
+}
+
+.genre-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffeb3b, #ffd700);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.genre-card:hover {
+  transform: translateY(-15px) scale(1.04);
+  box-shadow: 0 25px 50px rgba(255, 235, 59, 0.15);
+  border-color: #ffeb3b;
+}
+
+.genre-card:hover::before {
+  transform: scaleX(1);
+}
+
+.genre-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+}
+
+.genre-card:hover .genre-icon {
+  transform: scale(1.2) rotate(8deg);
+}
+
+.genre-card h3 {
+  font-size: 1.65rem;
+  color: #ffeb3b;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.genre-card p {
+  color: #aaa;
+  line-height: 1.6;
+  font-size: 1.02rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .genres-section {
+    padding: 80px 5% 90px;
+  }
+  
+  .section-header h2 {
+    font-size: 2.6rem;
+  }
+}
+
+
+.footer {
+  background: linear-gradient(135deg, grey, #3d3c3c, #e6b800);
+  color: #1a1a1a;
+  padding: 80px 6% 40px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 60px;
+}
+
+.footer-brand h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.footer-brand p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-links a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.footer-links a:hover {
+  color: #111;
+  padding-left: 8px;
+}
+
+.footer-social p {
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.social-btn {
+  width: 52px;
+  height: 52px;
+  background: rgba(26, 26, 26, 0.15);
+  color: #1a1a1a;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  background: #1a1a1a;
+  color: #ffeb3b;
+  transform: translateY(-6px) scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(26, 26, 26, 0.3);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ==================== MOBILE FIXES ==================== */
+
+@media (max-width: 768px) {
+  
+  /* Fix background shifting */
+  .hero {
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    background-size: cover;
+    background-position: center;
+   /* filter: blur(12px) brightness(0.75);*/
+  }
+
+  /* Make buttons side by side on mobile */
+  .cta-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-buttons .btn {
+    padding: 14px 28px;
+    font-size: 1.05rem;
+    min-width: 160px;
+  }
+
+  /* Improve hero text on mobile */
+  .hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  /* Make sure content doesn't overflow */
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  /* Fix any unwanted horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+/* ==================== MOBILE FIXES ==================== */
+
+@media (max-width: 768px) {
+  
+  /* Fix background shifting */
+  /*.hero {
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px) brightness(0.75);
+  }
+
+  /* Make buttons side by side on mobile */
+  .cta-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+
+  .cta-buttons .btn {
+    padding: 14px 24px !important;
+    font-size: 1.05rem !important;
+    min-width: 155px !important;
+  }
+
+  .hero{
+    height: 85vh !important;
+    min-height: 520px !important;
+  }
+
+  /* Improve hero text on mobile */
+  .hero h1 {
+    font-size: 2.4rem !important;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.35rem !important;
+  }
+
+  /* Make sure content doesn't overflow */
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  .open-book{
+    width: 85% !important;
+    max-width: 520px !important;
+  }
+
+  /* Fix any unwanted horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ==================== GENRES SECTION - MOBILE FIX (2 per row) ==================== */
+
+.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Force 2 columns on mobile */
+@media (max-width: 768px) {
+  .genres-grid {
+    grid-template-columns: repeat(2, 1fr);   /* 2 genres per row on mobile */
+    gap: 1.2rem;
+    padding: 0 15px;
+  }
+  
+  .genre-card {
+    padding: 30px 20px;
+  }
+  
+  .genre-icon {
+    font-size: 2.8rem;
+  }
+  
+  .genre-card h3 {
+    font-size: 1.45rem;
+  }
+}
+
+/* On larger screens, allow more columns */
+@media (min-width: 769px) {
+  .genres-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+@media  (max-width){
+  .footer-top{
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40PX;
+  }
+
+  .social-buttons{
+    gap: 20PX;
+  }
+  
+  .social-btn{
+    width: 55px;
+    height: 55px;
+    font-size: 2rem;
+  }
+}
+
 

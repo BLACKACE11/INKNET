@@ -320,7 +320,7 @@ header {
 
 /* Trending Section */
 .trending-section {
-  color: #f4d35e;
+  color: #fff;
 }
 
 .trending-header {
@@ -342,18 +342,28 @@ header {
   background: #1a1a1a;
   padding: 1.5rem;
   border-radius: 16px;
+  margin-bottom: 60px;
 }
 
 .book-cover {
   width: 180px;
-  border-radius: 8px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+
 }
 
 .book-info p {
   text-decoration: none;
   margin-bottom: 1rem;
   line-height: 1.6;
+  color: #fff;
+}
+
+.btn-small{
+background: #ffeb3b;
+color: #ccc;
 }
 
 .trending-grid {
@@ -538,19 +548,22 @@ header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1.8rem;
+  margin-top: 20px;
 }
 
 .book-card {
   transition: all 0.4s ease;
   cursor: pointer;                    /* Changes cursor to hand/pointer */
   position: relative;
+  border-radius: 12px;
 }
 
 .book-card img {
-  width: 100%;
+  width: 90%;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   transition: all 0.4s ease;
+  height: 250pxx;
 }
 
 /* Hover Effect - Book becomes larger + slight lift */
@@ -566,10 +579,11 @@ header {
 /* Title and genre styling */
 .book-card .genre {
   color: #ffeb3b;
-  font-size: 0.9rem;
-  margin-top: 12px;
+  font-size: 0.85rem;
+  margin-top: 10px;
   font-weight: 500;
   transition: color 0.3s;
+ 
 }
 
 .book-card:hover .genre {
@@ -747,7 +761,7 @@ header {
   margin: 0 auto 60px;
 }
 
-.genres-grid {
+/*.genres-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 2rem;
@@ -757,7 +771,7 @@ header {
   width: 100%;
   box-sizing: border-box;
   
-}
+}*/
 
 
 
@@ -920,6 +934,114 @@ header {
   opacity: 0.85;
 }
 
+/* ==================== MOBILE FIXES ==================== */
+
+@media (max-width: 768px) {
+  
+  /* Fix background shifting */
+  .hero {
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    background-size: cover;
+    background-position: center;
+   /* filter: blur(12px) brightness(0.75);*/
+  }
+
+  /* Make buttons side by side on mobile */
+  .cta-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-buttons .btn {
+    padding: 14px 28px;
+    font-size: 1.05rem;
+    min-width: 160px;
+  }
+
+  /* Improve hero text on mobile */
+  .hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  /* Make sure content doesn't overflow */
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  /* Fix any unwanted horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+/* ==================== MOBILE FIXES ==================== */
+
+@media (max-width: 768px) {
+  
+  /* Fix background shifting */
+  /*.hero {
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px) brightness(0.75);
+  }
+
+  /* Make buttons side by side on mobile */
+  .cta-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-buttons .btn {
+    padding: 14px 28px;
+    font-size: 1.05rem;
+    min-width: 160px;
+  }
+
+  /* Improve hero text on mobile */
+  .hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  /* Make sure content doesn't overflow */
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  /* Fix any unwanted horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
 /* Responsive */
 @media (max-width: 992px) {
   .footer-top {
@@ -938,4 +1060,62 @@ header {
     text-align: center;
   }
 }
+
+/* ==================== GENRES SECTION - MOBILE FIX (2 per row) ==================== */
+
+.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Force 2 columns on mobile */
+@media (max-width: 768px) {
+  .genres-grid {
+    grid-template-columns: repeat(2, 1fr);   /* 2 genres per row on mobile */
+    gap: 1.2rem;
+    padding: 0 15px;
+  }
+  
+  .genre-card {
+    padding: 30px 20px;
+  }
+  
+  .genre-icon {
+    font-size: 2.8rem;
+  }
+  
+  .genre-card h3 {
+    font-size: 1.45rem;
+  }
+}
+
+/* On larger screens, allow more columns */
+@media (min-width: 769px) {
+  .genres-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+@media  (max-width){
+  .footer-top{
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40PX;
+  }
+
+  .social-buttons{
+    gap: 20PX;
+  }
+  
+  .social-btn{
+    width: 55px;
+    height: 55px;
+    font-size: 2rem;
+  }
+}
+
 
